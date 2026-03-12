@@ -80,7 +80,7 @@ void FilterVoxelToPoints::filter(mp2p_icp::metric_map_t& inOut) const
         /* create cloud of the same type as the view */
         pts->GetRuntimeClass()->className);
 
-    outPc->copyFrom(*pts);
+    outPc->insertAnotherMap(pts, mrpt::poses::CPose3D::Identity(), false);
     outPc->mark_as_modified();
 
     MRPT_END
